@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Andreza
+      changes:
+        sqlFile:
+          encoding: UTF-8
+          path: scripts/1_TESTE_SQL.sql
+          relativeToChangelogFile: true
+  - changeSet:
+      id: 2
+      author: Andreza
+      changes:
+        sqlFile:
+          encoding: UTF-8
+          path: scripts/2_TESTE_SQL.sql
+          relativeToChangelogFile: true
