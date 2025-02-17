@@ -8,7 +8,7 @@ GROQ_API_KEY = "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"
 
 client = Groq(api_key=GROQ_API_KEY)
 
-modelos = ["llama3-8b-8192", "deepseek-r1-distill-llama-70b"]
+modelos = ["deepseek-r1-distill-llama-70b"]
 pergunta = "Qual o número da licitação com maior valor do ano de 2024?"
 
 default_prompt = """
@@ -61,6 +61,7 @@ def generate_sql (pergunta, modelo):
             {"role": "user", "content": f"Pergunta: {pergunta}"}
             ],
         model=modelo,
+        temperature=0.7
     )
 
     resultado = chat_completion.choices[0].message.content.strip()

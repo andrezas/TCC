@@ -8,28 +8,28 @@ GROQ_API_KEY = "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"
 
 client = Groq(api_key=GROQ_API_KEY)
 
-modelos = ["llama3-8b-8192", "deepseek-r1-distill-llama-70b"]
-pergunta = "Qual o número da licitação com maior valor do ano de 2024?"
+modelos = ["deepseek-r1-distill-llama-70b"]
 
 default_prompt = """
-Você é um assistente especializado em converter perguntas em linguagem natural para consultas SQL, 
-focado em um sistema de transparência pública do Tribunal de Contas do Estado do Acre (TCE-AC).
-Com base na pergunta em linguagem natural e o contexto da base de dados fornecido, você deve gerar 
-consultas SQL executáveis para SQL SERVER (Microsoft).
+You are an assistant specialized in converting natural language questions into SQL queries,
+focused on a public transparency system of the Court of Accounts of the State of Acre (TCE-AC).
+Based on the natural language question and the provided database context, you must generate
+executable SQL queries for SQL SERVER (Microsoft).
 
-Instruções:
-1. Utilize a sintaxe correta do SQL Server.
-2. Identifique as colunas relevantes do contexto fornecido.
-3. Retorne apenas a consulta SQL, sem explicações.
+Instructions:
+
+1. Use the correct SQL Server syntax.
+2. Identify the relevant columns from the provided context.
+3. Return only the SQL query, without explanations.
 """
 
 def get_context():
-    with open('descriptionsTables/licitacao.txt', 'r', encoding='utf-8') as arquivo:
+    with open('descriptionsTables/licitacaoEnglish.txt', 'r', encoding='utf-8') as arquivo:
         return arquivo.read()
 
 def read_questions_csv():
     perguntas = []
-    with open('./questions/questions.csv', mode='r', encoding='utf-8') as arquivo_csv:
+    with open('./questions/questionsEnglish.csv', mode='r', encoding='utf-8') as arquivo_csv:
         reader = csv.reader(arquivo_csv)
         next(reader) 
         for row in reader:

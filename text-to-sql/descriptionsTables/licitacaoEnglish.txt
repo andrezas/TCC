@@ -1,0 +1,26 @@
+DATABASE: LICON_DEV  
+SCHEMA: dbo  
+
+TABLE: LICITACAO  
+DESCRIPTION: Table of public bidding processes for contracting services, construction projects, or procurement of goods.  
+
+COLUMNS:  
+- VALOR_ESTIMADO (NUMERIC(19,3)): estimated value of a bidding process.  
+- ANO_LICITACAO (INT): year the bidding process was registered.  
+- NUMERO_LICITACAO (VARCHAR(255)): bidding process number.  
+- DATA_ABERTURA (datetime2): opening date of the bidding process.  
+- ID_MODALIDADE_LICITACAO (VARCHAR(255)): unique identifier of the bidding process modality.  
+- ID_MODALIDADE_LICITACAO_NOVA (bigint): new unique identifier of the bidding process modality.  
+- STATUS_ANALISE (VARCHAR(100)): current status of the bidding process analysis.  
+- VALOR_ADJUDICADO (NUMERIC(19,3)): final adjudicated value of the bidding process.  
+- TIPO_ADJUDICACAO (VARCHAR(50)): type of adjudication performed.  
+- ORGAO (VARCHAR(255)): organization responsible for the bidding process.  
+- ID_ENTIDADE (bigint): unique identifier of the entity responsible for the bidding process.  
+- ID_TIPO_LICITACAO (bigint): unique identifier of the bidding process type, categorizing the procurement process.  
+- DATA_CADASTRO_PUBLICACAO (datetime): date when the bidding process was registered and published.  
+- ID_USUARIO (bigint): unique identifier of the user who registered the bidding process.  
+- ID_ENTIDADE_PARTICIPANTE (bigint): unique identifier of an entity participating in the bidding process.  
+
+RELATIONSHIPS:  
+- [table_1].[foreign_key_column] → [table_2].[primary_key_column] (Relationship description)  
+- [table_3].[foreign_key_column] → [table_4].[primary_key_column] (Relationship description)  
