@@ -38,10 +38,10 @@ def read_questions_csv():
     return perguntas
     
 def write_result_csv(id_pergunta, pergunta, resultado, modelo):
-    caminho_pasta = "./results/"
+    caminho_pasta = "./results/deepseek"
     os.makedirs(caminho_pasta, exist_ok=True)
 
-    nome_arquivo = f"results_{modelo}.csv"
+    nome_arquivo = os.path.join(caminho_pasta, f"results_{modelo}temp0_5.csv")
 
     if not os.path.exists(nome_arquivo):
         with open(nome_arquivo, mode='w', newline='', encoding='utf-8') as arquivo_csv:
@@ -61,6 +61,7 @@ def generate_sql (pergunta, modelo):
             {"role": "user", "content": f"Pergunta: {pergunta}"}
             ],
         model=modelo,
+        temperature=0.5
     )
 
     resultado = chat_completion.choices[0].message.content.strip()

@@ -41,7 +41,7 @@ def write_result_csv(id_pergunta, pergunta, resultado, modelo):
     caminho_pasta = "./results/"
     os.makedirs(caminho_pasta, exist_ok=True)
 
-    nome_arquivo = f"results_{modelo}.csv"
+    nome_arquivo = os.path.join(caminho_pasta, f"results_{modelo}.csv")
 
     if not os.path.exists(nome_arquivo):
         with open(nome_arquivo, mode='w', newline='', encoding='utf-8') as arquivo_csv:
