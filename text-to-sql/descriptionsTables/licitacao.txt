@@ -9,8 +9,7 @@ COLUMNS:
 - ANO_LICITACAO (INT): ano que a licitação foi cadastrada. 
 - NUMERO_LICITACAO (VARCHAR(255)): número da licitação.
 - DATA_ABERTURA (datetime2): data de abertura da licitação.
-- ID_MODALIDADE_LICITACAO (VARCHAR(255)): identificador único da modalidade da licitação.
-- ID_MODALIDADE_LICITACAO_NOVA (bigint): novo identificador único da modalidade da licitação.
+- ID_MODALIDADE_LICITACAO (VARCHAR(255)): modalidade da licitação.
 - STATUS_ANALISE (VARCHAR(100)): status atual da análise da licitação.
 - VALOR_ADJUDICADO (NUMERIC(19,3)): valor final adjudicado para a licitação.
 - TIPO_ADJUDICACAO (VARCHAR(50)): tipo de adjudicação realizada.
@@ -23,5 +22,8 @@ COLUMNS:
 
 
 RELATIONSHIPS:  
-- [tabela_1].[coluna_fk] → [tabela_2].[coluna_pk] (Descrição da relação)  
-- [tabela_3].[coluna_fk] → [tabela_4].[coluna_pk] (Descrição da relação)  
+
+- LICITACAO.ID_ENTIDADE → ENTIDADE.ID_ENTIDADE (Descrição da relação)  
+- LICITACAO.ID_TIPO_LICITACAO → TIPO_LICITACAO.ID_TIPO_LICITACAO (Descrição da relação)  
+- LICITACAO.ID_USUARIO → USUARIO.ID_USUARIO (Descrição da relação)  
+- LICITACAO.ID_ENTIDADE_PARTICIPANTE → ENTIDADE.ID_ENTIDADE (Descrição da relação) 

@@ -8,7 +8,7 @@ GROQ_API_KEY = "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"
 
 client = Groq(api_key=GROQ_API_KEY)
 
-modelos = ["llama3-8b-8192", "deepseek-r1-distill-llama-70b"]
+modelos = ["llama3-8b-8192", "deepseek-r1-distill-llama-70b", "gemma2-9b-it", "mixtral-8x7b-32768"]
 pergunta = "Qual o número da licitação com maior valor do ano de 2024?"
 
 default_prompt = """
