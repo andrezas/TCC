@@ -1,0 +1,2 @@
+ID,Pergunta,Consulta_SQL,Modelo
+1," ""Qual o número da licitação com maior valor do ano de 2024?""",SELECT TOP 1 NUMERO_LICITACAO FROM LICITACAO WHERE ANO_LICITACAO = 2024 ORDER BY VALOR_ESTIMADO DESC;,gemma2-9b-it
