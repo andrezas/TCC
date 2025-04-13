@@ -2,28 +2,41 @@ DATABASE: LICON_DEV
 ESQUEMA: dbo  
 
 TABLE: LICITACAO  
-DESCRIPTION: Tabela de licitações públicas para contratação de serviços, obras ou aquisição de bens.
+DESCRIPTION: Tabela que registra informações de licitações públicas para contratação de serviços, obras ou aquisição de bens.
 
 COLUMNS:  
 - VALOR_ESTIMADO (NUMERIC(19,3)): valor estimado de uma licitação.  
 - ANO_LICITACAO (INT): ano que a licitação foi cadastrada. 
 - NUMERO_LICITACAO (VARCHAR(255)): número da licitação.
 - DATA_ABERTURA (datetime2): data de abertura da licitação.
-- ID_MODALIDADE_LICITACAO (VARCHAR(255)): modalidade da licitação.
-- STATUS_ANALISE (VARCHAR(100)): status atual da análise da licitação.
+- ID_MODALIDADE_LICITACAO_NOVA (VARCHAR(255)): modalidade da licitação.
 - VALOR_ADJUDICADO (NUMERIC(19,3)): valor final adjudicado para a licitação.
-- TIPO_ADJUDICACAO (VARCHAR(50)): tipo de adjudicação realizada.
-- ORGAO (VARCHAR(255)): órgão responsável pela licitação.
-- ID_ENTIDADE (bigint): identificador único da entidade responsável pela licitação.
-- ID_TIPO_LICITACAO (bigint): identificador único do tipo de licitação, categorizando o processo licitatório.
+- ID_ENTIDADE (bigint): identificador único do órgão/entidade responsável pela licitação.
 - DATA_CADASTRO_PUBLICACAO (datetime): data em que a licitação foi cadastrada e publicada.
-- ID_USUARIO (bigint): identificador único do usuário que cadastrou a licitação.
-- ID_ENTIDADE_PARTICIPANTE (bigint): identificador único de uma entidade participante da licitação.
+- OBJETO_LICITACAO (VARCHAR(4000)): descrição detalhada do que está sendo contratado, realizado ou adquirido.
+- STATUS_OCORRENCIA_LICITACAO_ATUAL (varchar(100)): registra o status ou condição atual da licitação.
+- FASE (varchar(255)): indica em que etapa/fase do processo licitatório a licitação se encontra.
 
 
 RELATIONSHIPS:  
 
 - LICITACAO.ID_ENTIDADE → ENTIDADE.ID_ENTIDADE (Descrição da relação)  
-- LICITACAO.ID_TIPO_LICITACAO → TIPO_LICITACAO.ID_TIPO_LICITACAO (Descrição da relação)  
-- LICITACAO.ID_USUARIO → USUARIO.ID_USUARIO (Descrição da relação)  
-- LICITACAO.ID_ENTIDADE_PARTICIPANTE → ENTIDADE.ID_ENTIDADE (Descrição da relação) 
+- LICITACAO.ID_MODALIDADE_LICITACAO_NOVA → MODALIDADE_LICITACAO.ID_MODALIDADE_LICITACAO ()
+
+--------------------
+
+TABLE: ENTIDADE  
+DESCRIPTION: Tabela que registra informações de órgãos públicos responsáveis por realizar ou participar de licitações.
+
+COLUMNS:
+- ID_ENTIDADE (bigint): identificador único (chave primária) da entidade/órgão.
+- NOME (varchar(255)): nome da entidade.
+
+--------------------
+
+TABLE: MODALIDADE_LICITACAO  
+DESCRIPTION: Tabela que registra informações sobre as modalidades legais disponíveis para a realização de uma licitação
+
+COLUMNS:
+- ID_MODALIDADE_LICITACAO (bigint): identificador único (chave primária) da modalidade.
+- NOME (varchar(255)): nome da modalidade.

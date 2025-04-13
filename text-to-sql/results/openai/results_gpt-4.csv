@@ -1,0 +1,139 @@
+ID,Pergunta,Consulta_SQL,Modelo
+2," ""Qual o valor da licitação com maior valor do ano de 2023?""","SELECT MAX(VALOR_ESTIMADO) AS ValorMaximo
+FROM LICON_DEV.dbo.LICITACAO
+WHERE ANO_LICITACAO = 2023;",gpt-4
+1," ""Qual o número da licitação com maior valor do ano de 2024?""","SELECT TOP 1 NUMERO_LICITACAO 
+FROM dbo.LICITACAO 
+WHERE ANO_LICITACAO = 2024 
+ORDER BY VALOR_ESTIMADO DESC",gpt-4
+2," ""Qual o valor da licitação com maior valor do ano de 2023?""","SELECT MAX(VALOR_ESTIMADO) 
+FROM LICON_DEV.dbo.LICITACAO 
+WHERE ANO_LICITACAO = 2023;",gpt-4
+3," ""Qual a ocorrência da licitação de número 681?""","SELECT STATUS_OCORRENCIA_LICITACAO_ATUAL 
+FROM dbo.LICITACAO 
+WHERE NUMERO_LICITACAO = '681';",gpt-4
+4," ""Quais licitações foram cadastradas em 2024 cujo objeto foi aquisição de livros?""","SELECT * 
+FROM LICON_DEV.dbo.LICITACAO 
+WHERE ANO_LICITACAO = 2024 AND OBJETO_LICITACAO LIKE '%aquisição de livros%'",gpt-4
+5," ""Qual o objeto da licitação de número 723?""","SELECT OBJETO_LICITACAO 
+FROM dbo.LICITACAO 
+WHERE NUMERO_LICITACAO = '723';",gpt-4
+6," ""Qual foi a licitação com maior valor adjudicado em 2023?""","SELECT TOP 1 NUMERO_LICITACAO, VALOR_ADJUDICADO
+FROM dbo.LICITACAO
+WHERE ANO_LICITACAO = 2023
+ORDER BY VALOR_ADJUDICADO DESC",gpt-4
+7," ""Em que fase a licitação 710 se encontra?""","SELECT FASE 
+FROM dbo.LICITACAO 
+WHERE NUMERO_LICITACAO = '710';",gpt-4
+8," ""Quais foram as 3 licitações com os maiores valores adjudicados em 2024?""","SELECT TOP 3 NUMERO_LICITACAO, VALOR_ADJUDICADO
+FROM dbo.LICITACAO
+WHERE ANO_LICITACAO = 2024
+ORDER BY VALOR_ADJUDICADO DESC",gpt-4
+9, Qual a licitação de menor valor estimado no ano de 2022?,"SELECT TOP 1 *
+FROM LICON_DEV.dbo.LICITACAO
+WHERE ANO_LICITACAO = 2022
+ORDER BY VALOR_ESTIMADO ASC",gpt-4
+10, Qual o valor da licitação de número 759?,"SELECT VALOR_ESTIMADO 
+FROM dbo.LICITACAO 
+WHERE NUMERO_LICITACAO = '759';",gpt-4
+11," ""Qual a modalidade da licitação mais recente sobre medicamentos""","SELECT TOP 1 ID_MODALIDADE_LICITACAO_NOVA
+FROM dbo.LICITACAO
+WHERE OBJETO_LICITACAO LIKE '%medicamentos%'
+ORDER BY DATA_ABERTURA DESC;",gpt-4
+12," ""Qual é a média do valor estimado das licitações cadastradas em 2023?""","SELECT AVG(VALOR_ESTIMADO) 
+FROM LICON_DEV.dbo.LICITACAO 
+WHERE ANO_LICITACAO = 2023;",gpt-4
+13," ""Quantas licitações abertas em 2024 possuem valor estimado acima de 1 milhão de reais?""","SELECT COUNT(*) 
+FROM dbo.LICITACAO 
+WHERE ANO_LICITACAO = 2024 AND VALOR_ESTIMADO > 1000000;",gpt-4
+14," ""Quantas licitações foram realizadas pela entidade  TRIBUNAL DE JUSTIÇA no ano de 2024?""","SELECT COUNT(*) 
+FROM LICON_DEV.dbo.LICITACAO 
+WHERE ID_ENTIDADE = (SELECT ID_ENTIDADE FROM LICON_DEV.dbo.ENTIDADE WHERE NOME_ENTIDADE = 'TRIBUNAL DE JUSTIÇA') 
+AND ANO_LICITACAO = 2024;",gpt-4
+15," ""Quantas licitações possuem a legislação informada como ""Lei 14333""?""","SELECT COUNT(*) 
+FROM dbo.LICITACAO 
+WHERE LEI_14333 = 1",gpt-4
+16," ""Qual foi a licitação com o maior valor adjudicado em 2023 pela entidade PREFEITURA MUNICIPAL DE PORTO ACRE?""","SELECT TOP 1 NUMERO_LICITACAO, VALOR_ADJUDICADO
+FROM dbo.LICITACAO
+WHERE ANO_LICITACAO = 2023 AND ORGAO = 'PREFEITURA MUNICIPAL DE PORTO ACRE'
+ORDER BY VALOR_ADJUDICADO DESC",gpt-4
+17," ""Quantas licitações possuem valor estimado superior a 500 mil reais e inferior a 1 milhão reais cadastradas em 2023?""","SELECT COUNT(*) 
+FROM LICON_DEV.dbo.LICITACAO 
+WHERE ANO_LICITACAO = 2023 
+AND VALOR_ESTIMADO > 500000 
+AND VALOR_ESTIMADO < 1000000",gpt-4
+18," ""Quantas licitações tiveram participação exclusiva em 2024?""","SELECT COUNT(*) 
+FROM dbo.LICITACAO 
+WHERE ANO_LICITACAO = 2024 AND PARTICIPACAO_EXCLUSIVA = 1;",gpt-4
+19, Qual a entidade responsavel pela última licitação cadastrada?,"SELECT TOP 1 ID_ENTIDADE 
+FROM dbo.LICITACAO 
+ORDER BY DATA_CADASTRO_PUBLICACAO DESC",gpt-4
+20," Quantas licitações existem para a modalidade ""Concurso""?","SELECT COUNT(*) 
+FROM dbo.LICITACAO 
+WHERE ID_MODALIDADE_LICITACAO_NOVA = 'Concurso'",gpt-4
+21," ""Quais foram as 3 entidades que mais realizaram licitações nos últimos 5 anos e qual foi o valor total adjudicado por cada uma?""","SELECT TOP 3 
+    ID_ENTIDADE, 
+    COUNT(*) AS NUMERO_LICITACOES, 
+    SUM(VALOR_ADJUDICADO) AS VALOR_TOTAL_ADJUDICADO
+FROM 
+    dbo.LICITACAO
+WHERE 
+    ANO_LICITACAO >= YEAR(GETDATE()) - 5
+GROUP BY 
+    ID_ENTIDADE
+ORDER BY 
+    NUMERO_LICITACOES DESC;",gpt-4
+22," ""Quais os 3 usuários que cadastraram mais licitações nos últimos 12 meses e a média de valor estimado por cada um?""","SELECT TOP 3 
+    ID_USUARIO, 
+    COUNT(*) AS NUMERO_LICITACOES, 
+    AVG(VALOR_ESTIMADO) AS MEDIA_VALOR_ESTIMADO
+FROM 
+    dbo.LICITACAO
+WHERE 
+    DATA_CADASTRO_PUBLICACAO >= DATEADD(YEAR, -1, GETDATE())
+GROUP BY 
+    ID_USUARIO
+ORDER BY 
+    NUMERO_LICITACOES DESC;",gpt-4
+23," ""Quais os 3 usuários cadastraram licitações com valores estimados acima da média geral de 2024?""","SELECT TOP 3 ID_USUARIO
+FROM dbo.LICITACAO
+WHERE ANO_LICITACAO = 2024 AND VALOR_ESTIMADO > (SELECT AVG(VALOR_ESTIMADO) FROM dbo.LICITACAO WHERE ANO_LICITACAO = 2024)",gpt-4
+24," ""Quantas licitações tiveram valores estimados superiores à média de todas as licitações do mesmo ano?""","SELECT COUNT(*) 
+FROM dbo.LICITACAO AS L1
+WHERE L1.VALOR_ESTIMADO > (
+    SELECT AVG(L2.VALOR_ESTIMADO) 
+    FROM dbo.LICITACAO AS L2 
+    WHERE L1.ANO_LICITACAO = L2.ANO_LICITACAO
+)",gpt-4
+25, Quantas licitações por fase existem?,"SELECT FASE, COUNT(*) AS QUANTIDADE
+FROM dbo.LICITACAO
+GROUP BY FASE;",gpt-4
+26, Quantas licitações foram abertas por mês nos últimos 6 meses?,"SELECT 
+    MONTH(DATA_ABERTURA) AS Mes, 
+    COUNT(*) AS Quantidade_Licitacoes
+FROM 
+    dbo.LICITACAO
+WHERE 
+    DATA_ABERTURA >= DATEADD(MONTH, -6, GETDATE())
+GROUP BY 
+    MONTH(DATA_ABERTURA)",gpt-4
+27, Qual a entidade que mais cadastrou licitações?,"SELECT ID_ENTIDADE, COUNT(*) AS QUANTIDADE
+FROM dbo.LICITACAO
+GROUP BY ID_ENTIDADE
+ORDER BY QUANTIDADE DESC
+LIMIT 1;",gpt-4
+28, Qual a quantidade de licitações cadastradas por ano a partir de 2020?,"SELECT ANO_LICITACAO, COUNT(*) AS QUANTIDADE_LICITACOES
+FROM dbo.LICITACAO
+WHERE ANO_LICITACAO >= 2020
+GROUP BY ANO_LICITACAO
+ORDER BY ANO_LICITACAO;",gpt-4
+29, Qual o órgão que menos cadastrou licitações?,"SELECT ORGAO, COUNT(*) AS QUANTIDADE
+FROM dbo.LICITACAO
+GROUP BY ORGAO
+ORDER BY QUANTIDADE ASC
+FETCH FIRST 1 ROW ONLY;",gpt-4
+30, Quais entidades cadastraram mais de 100 licitações em 2023,"SELECT ID_ENTIDADE, COUNT(*) AS QUANTIDADE_LICITACOES
+FROM dbo.LICITACAO
+WHERE ANO_LICITACAO = 2023
+GROUP BY ID_ENTIDADE
+HAVING COUNT(*) > 100;",gpt-4
