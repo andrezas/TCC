@@ -4,7 +4,7 @@ import re
 import os
 from repository import execute_query
 
-modelos = ["phi4"]  # adapte conforme os modelos disponíveis no seu Ollama
+modelos = ["phi4"]  
 
 default_prompt = """
 Você é um especialista em SQL Server e tem como tarefa a geração de consultas SQL sintaticamente corretas a partir 
