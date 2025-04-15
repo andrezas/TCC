@@ -1,0 +1,145 @@
+[
+  {
+    "id_pergunta": 1,
+    "sql_reference": "SELECT TOP 1 NUMERO_LICITACAO FROM dbo.LICITACAO WHERE ANO_LICITACAO = 2024 ORDER BY VALOR_ESTIMADO DESC;",
+    "resultado": 230
+  },
+  {
+    "id_pergunta": 2,
+    "sql_reference": "SELECT TOP 1 VALOR_ESTIMADO FROM dbo.LICITACAO WHERE ANO_LICITACAO = 2023 ORDER BY VALOR_ESTIMADO;",
+    "resultado": 2000233732.92
+  },
+  {
+    "id_pergunta": 3,
+    "sql_reference": "SELECT STATUS_OCORRENCIA_LICITACAO_ATUAL FROM dbo.LICITACAO WHERE NUMERO_LICITACAO = 681;",
+    "resultado": "ADJUDICADA"
+  },
+  {
+    "id_pergunta": 4,
+    "sql_reference": "SELECT NUMERO_LICITACAO FROM dbo.LICITACAO WHERE ANO_LICITACAO = 2024 AND OBJETO_LICITACAO LIKE '%aquisição de livros%';",
+    "resultado": "0005"
+  },
+  {
+    "id_pergunta": 5,
+    "sql_reference": "SELECT top 1 NUMERO_LICITACAO  FROM dbo.LICITACAO WHERE ANO_LICITACAO = 2023 ORDER BY VALOR_ADJUDICADO DESC;",
+    "resultado": "014"
+  },
+  {
+    "id_pergunta": 6,
+    "sql_reference": "SELECT FASE  FROM dbo.LICITACAO WHERE NUMERO_LICITACAO  = '710';",
+    "resultado": "FINALIZACAO"
+  },
+  {
+    "id_pergunta": 7,
+    "sql_reference": "SELECT TOP 3 NUMERO_LICITACAO FROM dbo.LICITACAO WHERE ANO_LICITACAO = 2024 ORDER BY VALOR_ADJUDICADO DESC;",
+    "resultado": ["008", "078", "017"]
+  },
+  {
+    "id_pergunta": 8,
+    "sql_reference": "SELECT VALOR_ESTIMADO FROM dbo.LICITACAO WHERE NUMERO_LICITACAO = '759';",
+    "resultado": 800697.49
+  },
+  {
+    "id_pergunta": 9,
+    "sql_reference": "SELECT TOP 1 ml.nome  FROM dbo.LICITACAO l JOIN dbo.MODALIDADE_LICITACAO ml  ON ml.ID_MODALIDADE_LICITACAO = l.ID_MODALIDADE_LICITACAO_NOVA WHERE l.OBJETO_LICITACAO LIKE '%medicamentos%' ORDER BY l.DATA_ABERTURA DESC;",
+    "resultado": "Pregão Eletrônico"
+  },
+  {
+    "id_pergunta": 10,
+    "sql_reference": "SELECT AVG(VALOR_ESTIMADO) AS MEDIA_VALOR_ESTIMADO FROM dbo.LICITACAO WHERE ANO_LICITACAO = 2023;",
+    "resultado": 5460484.061243
+  },
+  {
+    "id_pergunta": 11,
+    "sql_reference": "SELECT COUNT(*) AS TOTAL FROM dbo.LICITACAO WHERE ANO_LICITACAO = 2024 AND VALOR_ESTIMADO > 1000000;",
+    "resultado": 494
+  },
+  {
+    "id_pergunta": 12,
+    "sql_reference": "SELECT COUNT(*) AS QTD_LICITACOES FROM dbo.LICITACAO l JOIN dbo.ENTIDADE e ON l.ID_ENTIDADE = e.ID_ENTIDADE WHERE e.NOME = 'TRIBUNAL DE JUSTIÇA' AND l.ANO_LICITACAO = 2024;",
+    "resultado": 50
+  },
+  {
+    "id_pergunta": 13,
+    "sql_reference": "SELECT TOP 1 l.NUMERO_LICITACAO  FROM dbo.LICITACAO l JOIN dbo.ENTIDADE e ON l.ID_ENTIDADE = e.ID_ENTIDADE WHERE l.ANO_LICITACAO = 2023 AND e.NOME = 'PREFEITURA MUNICIPAL DE PORTO ACRE' AND l.VALOR_ADJUDICADO IS NOT NULL ORDER BY l.VALOR_ADJUDICADO DESC;",
+    "resultado": "031"
+  },
+  {
+    "id_pergunta": 14,
+    "sql_reference": "SELECT count(*)  FROM dbo.LICITACAO where VALOR_ESTIMADO > 500000 and VALOR_ESTIMADO < 1000000 and ANO_LICITACAO = 2023;",
+    "resultado": 391
+  },
+  {
+    "id_pergunta": 15,
+    "sql_reference": "SELECT top 1 e.nome FROM dbo.LICITACAO l join dbo.entidade e on l.ID_ENTIDADE = e.id_entidade ORDER BY l.DATA_CADASTRO_PUBLICACAO DESC;",
+    "resultado": "CÂMARA MUNICIPAL DE RIO BRANCO"
+  },
+  {
+    "id_pergunta": 16,
+    "sql_reference": "select count(*) from licitacao l join MODALIDADE_LICITACAO ml on l.ID_MODALIDADE_LICITACAO_NOVA = ml.ID_MODALIDADE_LICITACAO where ml.nome = 'Concurso';",
+    "resultado": 2
+  },
+  {
+    "id_pergunta": 17,
+    "sql_reference": "SELECT TOP 3 e.NOME, SUM(l.VALOR_ADJUDICADO) AS TOTAL_ADJUDICADO FROM dbo.LICITACAO l JOIN dbo.ENTIDADE e ON l.ID_ENTIDADE = e.ID_ENTIDADE  WHERE l.ANO_LICITACAO >= YEAR(GETDATE()) - 5 GROUP BY e.NOME ORDER BY COUNT(*) DESC;",
+    "resultado": [
+      ["SECRETARIA DE ESTADO DE SAÚDE - SESACRE", 3424702399.16],
+      ["TRIBUNAL DE JUSTIÇA", 174827196.73],
+      ["PREFEITURA MUNICIPAL DE CRUZEIRO DO SUL", 630501636.09]
+    ]
+  },
+  {
+    "id_pergunta": 18,
+    "sql_reference": "SELECT count(*) FROM dbo.LICITACAO L1 WHERE VALOR_ESTIMADO > ( SELECT AVG(VALOR_ESTIMADO) FROM dbo.LICITACAO L2 WHERE L2.ANO_LICITACAO = L1.ANO_LICITACAO );",
+    "resultado": 3135
+  },
+  {
+    "id_pergunta": 19,
+    "sql_reference": "SELECT fase, COUNT(*) AS TOTAL FROM dbo.LICITACAO l  WHERE fase IS NOT NULL  GROUP BY fase;",
+    "resultado": [
+      ["APRESENTACAO_PROPOSTAS_LANCES", 51],
+      ["DIVULGACAO_PUBLICACAO_LICITACAO", 3852],
+      ["FINALIZACAO", 15759],
+      ["PREPARATORIA", 9]
+    ]
+  },
+  {
+    "id_pergunta": 20,
+    "sql_reference": "SELECT FORMAT(DATA_ABERTURA, 'yyyy-MM') AS MES_ANO, COUNT(*) AS TOTAL_LICITACOES FROM dbo.LICITACAO WHERE DATA_ABERTURA >= DATEADD(MONTH, -6, GETDATE()) GROUP BY FORMAT(DATA_ABERTURA, 'yyyy-MM') ORDER BY MES_ANO;",
+    "resultado": [
+      ["2024-10", 144],
+      ["2024-11", 108],
+      ["2024-12", 1]
+    ]
+  },
+  {
+    "id_pergunta": 21,
+    "sql_reference": "SELECT TOP 1 e.nome, COUNT(*) AS TOTAL FROM dbo.LICITACAO l JOIN dbo.entidade e  ON e.ID_ENTIDADE = l.ID_ENTIDADE  GROUP BY e.nome ORDER BY count(*) DESC;",
+    "resultado": "SECRETARIA DE ESTADO DE SAÚDE - SESACRE"
+  },
+  {
+    "id_pergunta": 22,
+    "sql_reference": "SELECT ANO_LICITACAO, COUNT(*) AS TOTAL FROM dbo.LICITACAO WHERE ANO_LICITACAO >= 2020 GROUP BY ANO_LICITACAO ORDER BY ANO_LICITACAO;",
+    "resultado": [
+      [2020, 1894],
+      [2021, 2428],
+      [2022, 2657],
+      [2023, 2590],
+      [2024, 1153]
+    ]
+  },
+  {
+    "id_pergunta": 23,
+    "sql_reference": "SELECT TOP 1 orgao FROM dbo.LICITACAO GROUP BY orgao ORDER BY count(*) ASC;",
+    "resultado": "PREFEITURA  MUNICIPAL DE ASSIS BRASIL"
+  },
+  {
+    "id_pergunta": 24,
+    "sql_reference": "SELECT  e.nome AS NOME_ENTIDADE, SUM(l.VALOR_ADJUDICADO) AS TOTAL_ADJUDICADO FROM dbo.LICITACAO l JOIN dbo.ENTIDADE e ON e.ID_ENTIDADE = l.ID_ENTIDADE WHERE l.ANO_LICITACAO = 2023 GROUP BY e.nome HAVING COUNT(*) > 100 ORDER BY count(*) DESC;",
+    "resultado": [
+      ["SECRETARIA DE ESTADO DE SAÚDE - SESACRE", 789581346.9],
+      ["TRIBUNAL DE JUSTIÇA", 60919588.88],
+      ["SECRETARIA DE ESTADO DE EDUCAÇÃO E ESPORTE - SEE", 868765434.86]
+    ]
+  }
+]
