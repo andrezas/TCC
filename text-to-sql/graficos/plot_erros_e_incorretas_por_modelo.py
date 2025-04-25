@@ -23,22 +23,31 @@ consultas_incorretas = df[df['Resultado'] == 'Incorreto'].groupby('Modelo')['Res
 percentual_erro = (erros_sintaxe / total_por_modelo * 100).fillna(0).sort_values(ascending=False)
 percentual_incorreto = (consultas_incorretas / total_por_modelo * 100).fillna(0).sort_values(ascending=False)
 
+# Tamanhos de fonte personalizados
+title_fontsize = 18
+label_fontsize = 14
+tick_fontsize = 12
+
 # Gráfico: Percentual de Erros de Sintaxe por Modelo
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(9, 9))
 sns.barplot(x=percentual_erro.index, y=percentual_erro.values, color="#D9534F")
-plt.ylabel('Percentual de Erros de Sintaxe (%)')
-plt.xlabel('Modelo')
-plt.title('Erros de Sintaxe por Modelo')
+plt.ylabel('Percentual de Erros de Sintaxe (%)', fontsize=label_fontsize)
+plt.xlabel('Modelo', fontsize=label_fontsize)
+plt.title('Erros de Sintaxe por Modelo', fontsize=title_fontsize)
+plt.xticks(rotation=30, ha='right',fontsize=tick_fontsize)
+plt.yticks(fontsize=tick_fontsize)
 plt.tight_layout()
 plt.savefig("erros_sintaxe_por_modelo.png", dpi=300)
 plt.show()
 
 # Gráfico: Percentual de Consultas Incorretas por Modelo
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(9, 9))
 sns.barplot(x=percentual_incorreto.index, y=percentual_incorreto.values, color="#F0AD4E")
-plt.ylabel('Percentual de Consultas Incorretas (%)')
-plt.xlabel('Modelo')
-plt.title('Consultas Incorretas por Modelo')
+plt.ylabel('Percentual de Consultas Incorretas (%)', fontsize=label_fontsize)
+plt.xlabel('Modelo', fontsize=label_fontsize)
+plt.title('Consultas Incorretas por Modelo', fontsize=title_fontsize)
+plt.xticks(rotation=30, ha='right',fontsize=tick_fontsize)
+plt.yticks(fontsize=tick_fontsize)
 plt.tight_layout()
 plt.savefig("consultas_incorretas_por_modelo.png", dpi=300)
 plt.show()
