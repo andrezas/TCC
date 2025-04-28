@@ -6,12 +6,12 @@
   },
   {
     "id_pergunta": 2,
-    "sql_reference": "SELECT TOP 1 VALOR_ESTIMADO FROM dbo.LICITACAO WHERE ANO_LICITACAO = 2023 ORDER BY VALOR_ESTIMADO;",
+    "sql_reference": "SELECT TOP 1 VALOR_ESTIMADO FROM dbo.LICITACAO WHERE ANO_LICITACAO = 2023 ORDER BY VALOR_ESTIMADO DESC;",
     "resultado": 2000233732.92
   },
   {
     "id_pergunta": 3,
-    "sql_reference": "SELECT STATUS_OCORRENCIA_LICITACAO_ATUAL FROM dbo.LICITACAO WHERE NUMERO_LICITACAO = 681;",
+    "sql_reference": "SELECT STATUS_OCORRENCIA_LICITACAO_ATUAL FROM dbo.LICITACAO WHERE NUMERO_LICITACAO = '681';",
     "resultado": "ADJUDICADA"
   },
   {
@@ -31,12 +31,12 @@
   },
   {
     "id_pergunta": 7,
-    "sql_reference": "SELECT TOP 3 NUMERO_LICITACAO FROM dbo.LICITACAO WHERE ANO_LICITACAO = 2024 ORDER BY VALOR_ADJUDICADO DESC;",
+    "sql_reference": "SELECT TOP 3 NUMERO_LICITACAO, VALOR_ADJUDICADO FROM dbo.LICITACAO WHERE ANO_LICITACAO = 2024 ORDER BY VALOR_ADJUDICADO DESC;",
     "resultado": ["008", "078", "017"]
   },
   {
     "id_pergunta": 8,
-    "sql_reference": "SELECT VALOR_ESTIMADO FROM dbo.LICITACAO WHERE NUMERO_LICITACAO = '759';",
+    "sql_reference": "SELECT VALOR_ADJUDICADO, VALOR_ESTIMADO FROM dbo.LICITACAO WHERE NUMERO_LICITACAO = '759';",
     "resultado": 800697.49
   },
   {
@@ -61,7 +61,7 @@
   },
   {
     "id_pergunta": 13,
-    "sql_reference": "SELECT TOP 1 l.NUMERO_LICITACAO  FROM dbo.LICITACAO l JOIN dbo.ENTIDADE e ON l.ID_ENTIDADE = e.ID_ENTIDADE WHERE l.ANO_LICITACAO = 2023 AND e.NOME = 'PREFEITURA MUNICIPAL DE PORTO ACRE' AND l.VALOR_ADJUDICADO IS NOT NULL ORDER BY l.VALOR_ADJUDICADO DESC;",
+    "sql_reference": "SELECT TOP 1 *  FROM dbo.LICITACAO l JOIN dbo.ENTIDADE e ON l.ID_ENTIDADE = e.ID_ENTIDADE WHERE l.ANO_LICITACAO = 2023 AND e.NOME = 'PREFEITURA MUNICIPAL DE PORTO ACRE' AND l.VALOR_ADJUDICADO IS NOT NULL ORDER BY l.VALOR_ADJUDICADO DESC;",
     "resultado": "031"
   },
   {
@@ -95,7 +95,7 @@
   },
   {
     "id_pergunta": 19,
-    "sql_reference": "SELECT fase, COUNT(*) AS TOTAL FROM dbo.LICITACAO l  WHERE fase IS NOT NULL  GROUP BY fase;",
+    "sql_reference": "SELECT fase, COUNT(*) AS TOTAL FROM dbo.LICITACAO l GROUP BY fase;",
     "resultado": [
       ["APRESENTACAO_PROPOSTAS_LANCES", 51],
       ["DIVULGACAO_PUBLICACAO_LICITACAO", 3852],
@@ -130,7 +130,7 @@
   },
   {
     "id_pergunta": 23,
-    "sql_reference": "SELECT TOP 1 orgao FROM dbo.LICITACAO GROUP BY orgao ORDER BY count(*) ASC;",
+    "sql_reference": "SELECT TOP 1 id_entidade FROM dbo.LICITACAO GROUP BY id_entidade ORDER BY count(*) ASC;",
     "resultado": "PREFEITURA  MUNICIPAL DE ASSIS BRASIL"
   },
   {

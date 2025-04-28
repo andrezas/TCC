@@ -34,7 +34,7 @@ def read_questions_csv():
     return perguntas
 
 def write_result_csv(id_pergunta, pergunta, resultado, modelo):
-    caminho_pasta = "./results/openai"
+    caminho_pasta = "./results2/results_with_questions"
     os.makedirs(caminho_pasta, exist_ok=True)
 
     nome_arquivo = os.path.join(caminho_pasta, f"results_{modelo}.csv")

@@ -1,0 +1,122 @@
+[
+  {
+    "id_pergunta": 1,
+    "pergunta": "Qual o número da licitação com maior valor do ano de 2024?",
+    "complexidade_pergunta": "Simples"
+  },
+  {
+    "id_pergunta": 2,
+    "pergunta": "Qual o valor da licitação com maior valor do ano de 2023?",
+    "complexidade_pergunta": "Simples"
+  },
+  {
+    "id_pergunta": 3,
+    "pergunta": "Qual a ocorrência da licitação de número 681?",
+    "complexidade_pergunta": "Simples"
+  },
+  {
+    "id_pergunta": 4,
+    "pergunta": "Quais licitações foram cadastradas em 2024 cujo objeto foi aquisição de livros?",
+    "complexidade_pergunta": "Simples"
+  },
+  {
+    "id_pergunta": 5,
+    "pergunta": "Qual foi a licitação com maior valor adjudicado em 2023?",
+    "complexidade_pergunta": "Simples"
+  },
+  {
+    "id_pergunta": 6,
+    "pergunta": "Em que fase a licitação 710 se encontra?",
+    "complexidade_pergunta": "Simples"
+  },
+  {
+    "id_pergunta": 7,
+    "pergunta": "Quais foram as 3 licitações com os maiores valores adjudicados em 2024?",
+    "complexidade_pergunta": "Simples"
+  },
+  {
+    "id_pergunta": 8,
+    "pergunta": "Qual o valor adjudicado da licitação de número 759?",
+    "complexidade_pergunta": "Simples"
+  },
+  {
+    "id_pergunta": 9,
+    "pergunta": "Qual a modalidade da licitação mais recente sobre medicamentos",
+    "complexidade_pergunta": "Média"
+  },
+  {
+    "id_pergunta": 10,
+    "pergunta": "Qual é a média do valor estimado das licitações cadastradas em 2023?",
+    "complexidade_pergunta": "Média"
+  },
+  {
+    "id_pergunta": 11,
+    "pergunta": "Quantas licitações abertas em 2024 possuem valor estimado acima de 1 milhão de reais?",
+    "complexidade_pergunta": "Média"
+  },
+  {
+    "id_pergunta": 12,
+    "pergunta": "Quantas licitações foram realizadas pela entidade  TRIBUNAL DE JUSTIÇA no ano de 2024?",
+    "complexidade_pergunta": "Média"
+  },
+  {
+    "id_pergunta": 13,
+    "pergunta": "Qual foi a licitação com o maior valor adjudicado em 2023 pela entidade PREFEITURA MUNICIPAL DE PORTO ACRE?",
+    "complexidade_pergunta": "Média"
+  },
+  {
+    "id_pergunta": 14,
+    "pergunta": "Quantas licitações possuem valor estimado superior a 500 mil reais e inferior a 1 milhão reais cadastradas em 2023?",
+    "complexidade_pergunta": "Média"
+  },
+  {
+    "id_pergunta": 15,
+    "pergunta": "Qual a entidade responsavel pela última licitação cadastrada?",
+    "complexidade_pergunta": "Média"
+  },
+  {
+    "id_pergunta": 16,
+    "pergunta": "Quantas licitações existem para a modalidade 'Concurso'?",
+    "complexidade_pergunta": "Média"
+  },
+  {
+    "id_pergunta": 17,
+    "pergunta": "Quais foram as 3 entidades que mais realizaram licitações nos últimos 5 anos e qual foi o valor total adjudicado por cada uma?",
+    "complexidade_pergunta": "Complexa"
+  },
+  {
+    "id_pergunta": 18,
+    "pergunta": "Quantas licitações tiveram valores estimados superiores à média de todas as licitações do mesmo ano?",
+    "complexidade_pergunta": "Complexa"
+  },
+  {
+    "id_pergunta": 19,
+    "pergunta": "Quantas licitações por fase existem?",
+    "complexidade_pergunta": "Complexa"
+  },
+  {
+    "id_pergunta": 20,
+    "pergunta": "Quantas licitações foram abertas por mês nos últimos 6 meses?",
+    "complexidade_pergunta": "Complexa"
+  },
+  {
+    "id_pergunta": 21,
+    "pergunta": "Qual a entidade que mais cadastrou licitações?",
+    "complexidade_pergunta": "Complexa"
+  },
+  {
+    "id_pergunta": 22,
+    "pergunta": "Qual a quantidade de licitações cadastradas por ano a partir de 2020?",
+    "complexidade_pergunta": "Complexa"
+  },
+  {
+    "id_pergunta": 23,
+    "pergunta": "Qual o órgão que menos cadastrou licitações?",
+    "complexidade_pergunta": "Complexa"
+  },
+  {
+    "id_pergunta": 24,
+    "pergunta": "Quais entidades cadastraram mais de 100 licitações em 2023, e qual foi o total adjudicado por elas?",
+    "complexidade_pergunta": "Complexa"
+  }
+]

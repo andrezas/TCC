@@ -28,12 +28,23 @@ tick_fontsize = 12
 
 # Gráfico: Percentual de Erros de Sintaxe por Modelo
 plt.figure(figsize=(9, 9))
-sns.barplot(x=percentual_erro.index, y=percentual_erro.values, color="#4F78B1")
+ax = sns.barplot(x=percentual_erro.index, y=percentual_erro.values, color="#4F78B1")
+
+# Adiciona as linhas de grade no eixo Y
+ax.yaxis.grid(True, linestyle='--', alpha=0.7)
+
+# Adiciona os valores nas barras
+for p in ax.patches:
+    height = p.get_height()
+    ax.text(p.get_x() + p.get_width() / 2, height + 1, f'{height:.1f}%', 
+            ha='center', va='bottom', fontsize=10, color='black')
+
 plt.ylabel('Acurácia', fontsize=label_fontsize)
 plt.xlabel('Modelo', fontsize=label_fontsize)
 plt.title('Acurácia por Modelo', fontsize=title_fontsize)
-plt.xticks(rotation=30, ha='right',fontsize=tick_fontsize)
+plt.xticks(rotation=30, ha='right', fontsize=tick_fontsize)
 plt.yticks(fontsize=tick_fontsize)
 plt.tight_layout()
+
 plt.savefig("acuracia_por_modelo.png", dpi=300)
 plt.show()

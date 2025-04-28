@@ -82,7 +82,4 @@ if __name__ == "__main__":
         for id_pergunta, pergunta in perguntas:
             sql_query = generate_sql(pergunta, modelo)
             print(f"Query gerada:\n{sql_query}\n\n")
-            sql_executed = execute_query(sql_query)
-            print(f"\n Resultado da consulta: {sql_executed}")
-            print("\n-------------------------------\n")            
-            write_result_csv(id_pergunta, pergunta, sql_query, modelo)
+           
